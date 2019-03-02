@@ -3,8 +3,8 @@
     
     .navbar-default {
         
-        background-color: #f6A6E6 !important;
-        border-color: #e6e6F6;
+        background-color: #fff !important;
+        border-color: #e6e6e6;
     }
     .about-iphone img {
         width: 100%;
@@ -30,19 +30,7 @@
 /* Medius Devices , Desktop */
 @media only screen and (min-width: 992px) {
     
-     .navbar-default {
-        
-        background-color: #FFFDFC !important;
-        border-color: ##030303;
-    }
-    .about-iphone img {
-        width: 100%;
-    }
-    .purchase-now .col-md-3 {
-        
-        text-align: center;
-        padding-top: 50px;
-    }
+    
 }
 
 /* Large Devices, Wide Screen */
