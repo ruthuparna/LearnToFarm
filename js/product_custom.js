@@ -1,3 +1,17 @@
+$(document).ready(function(){
+    
+    
+    for(i=1;i<5;i++){
+         document.getElementById('imagedown'+i).src = '../images/bags/bag_'+i+'.jpg'
+        
+    }
+    document.getElementById('showImage').src='../images/bags/bag_'+1+'.jpg'
+});
+
+
+
+
+
 function displayImage(event) {
     event = event || window.event;
     var targetElement = event.target || event.srcElement
@@ -19,78 +33,60 @@ function displayImage(event) {
 
 function displayImageFromArray(value) {
     debugger
-    if(value == 'gray'){
+    var imageToBeDisplayed = value.split('_');
+    
     var curImage = document.getElementById('showImage');
+    
+    
     const array = [{
         imageArray: [
-            { src: '../images/bags/bag5.jpg' },
+            { src: '../images/bags/bag_'+imageToBeDisplayed[1]+'.jpg' },
             { src: '../images/bags/bag6.jpg' },
             { src: '../images/bags/bag7.jpg' },
             { src: '../images/bags/bag8.jpg' }
         ],
         discription: 'discription'
-    }, {
-        imageArray: [{ src: '../images/bags/bag1.jpg' },
+    }]/* {
+        imageArray: [{ src: '../images/bags/bag_2.jpg' },
             { src: '../images/bags/bag2.jpg' },
             { src: '../images/bags/bag3.jpg' },
-            { src: '../images/bags/bag4.jpg' }
-        ],
-        discription: 'discription1'
-    }, {
-        imageArray: [{ src: '../images/bags/bag1.jpg' },
-            { src: '../images/bags/bag2.jpg' },
-            { src: '../images/bags/bag3.jpg' },
-            { src: '../images/bags/bag4.jpg' }
-        ],
-        discription: 'discription2'
-    }]
-    curImage.src = array[0].imageArray[0].src
-    document.getElementById('image1').src = array[0].imageArray[0].src
-    document.getElementById('image2').src = array[0].imageArray[1].src
-    document.getElementById('image3').src = array[0].imageArray[2].src
-    document.getElementById('image4').src = array[0].imageArray[3].src
-    document.getElementById('discription').innerHTML = array[0].discription
-
-    array.forEach(function(element, elementIndex) {
-        console.log(element)
-    });
-    }
-    else if(value == 'black'){
-    var curImage = document.getElementById('showImage');
-    const array = [{
-        imageArray: [
-            { src: '../images/bags/bag5.jpg' },
-            { src: '../images/bags/bag6.jpg' },
-            { src: '../images/bags/bag7.jpg' },
+            { src: '../images/bags/bag4.jpg' },
             { src: '../images/bags/bag8.jpg' }
         ],
-        discription: 'discription'
-    }, {
-        imageArray: [{ src: '../images/bags/bag1.jpg' },
-            { src: '../images/bags/bag2.jpg' },
-            { src: '../images/bags/bag3.jpg' },
-            { src: '../images/bags/bag4.jpg' }
-        ],
         discription: 'discription1'
     }, {
-        imageArray: [{ src: '../images/bags/bag1.jpg' },
-            { src: '../images/bags/bag2.jpg' },
-            { src: '../images/bags/bag3.jpg' },
-            { src: '../images/bags/bag4.jpg' }
+        imageArray: [{ src: '../images/bags/bag_3.jpg' },
+            { src: '../images/bags/bag5.jpg' },
+            { src: '../images/bags/bag5.jpg' },
+            { src: '../images/bags/bag5.jpg' },
+            { src: '../images/bags/bag5.jpg' }
         ],
         discription: 'discription2'
-    }]
+    },
+    {
+        imageArray: [{ src: '../images/bags/bag_3.jpg' },
+            { src: '../images/bags/bag5.jpg' },
+            { src: '../images/bags/bag5.jpg' },
+            { src: '../images/bags/bag5.jpg' },
+            { src: '../images/bags/bag5.jpg' }
+        ],
+        discription: 'discription2'
+    }    */          
+                  
+    
     curImage.src = array[0].imageArray[0].src
-    document.getElementById('image1').src = array[0].imageArray[0].src
-    document.getElementById('image2').src = array[0].imageArray[1].src
-    document.getElementById('image3').src = array[0].imageArray[2].src
-    document.getElementById('image4').src = array[0].imageArray[3].src
+    for(i=1;i<5;i++){
+    document.getElementById('image'+i).src = array[0].imageArray[i-1].src;
+    }
+    /*document.getElementById('image2').src = array[imageToBeDisplayed[1]-1].imageArray[1].src
+    document.getElementById('image3').src = array[imageToBeDisplayed[1]-1].imageArray[2].src
+    document.getElementById('image4').src = array[imageToBeDisplayed[1]-1].imageArray[3].src
     document.getElementById('discription').innerHTML = array[0].discription
-
+*/
     array.forEach(function(element, elementIndex) {
         console.log(element)
     });
-    }
+    
 
 
 
