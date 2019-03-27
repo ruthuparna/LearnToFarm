@@ -2,7 +2,7 @@ $(document).ready(function(){
     
     
     for(i=1;i<5;i++){
-         document.getElementById('imagedown'+i).src = '../images/bags/bag_'+i+'.jpg'
+         document.getElementById(i).src = '../images/bags/bag_'+i+'.jpg'
         
     }
     document.getElementById('showImage').src='../images/bags/bag_'+1+'.jpg'
@@ -33,60 +33,104 @@ function displayImage(event) {
 
 function displayImageFromArray(value) {
     debugger
-    var imageToBeDisplayed = value.split('_');
-    
+    // var imageToBeDisplayed = value.split('_');
+
     var curImage = document.getElementById('showImage');
-    
-    
-    const array = [{
-        imageArray: [
-            { src: '../images/bags/bag_'+imageToBeDisplayed[1]+'.jpg' },
+    var sideThumbnail = []
+
+    const array = [
+        {
+            imageArray: [{ src: '../images/bags/bag5.jpg' },
             { src: '../images/bags/bag6.jpg' },
             { src: '../images/bags/bag7.jpg' },
             { src: '../images/bags/bag8.jpg' }
-        ],
-        discription: 'discription'
-    }]/* {
-        imageArray: [{ src: '../images/bags/bag_2.jpg' },
+            ],
+            discription: 'discription'
+        }, {
+            imageArray: [{ src: '../images/bags/bag1.jpg' },
             { src: '../images/bags/bag2.jpg' },
             { src: '../images/bags/bag3.jpg' },
             { src: '../images/bags/bag4.jpg' },
             { src: '../images/bags/bag8.jpg' }
-        ],
-        discription: 'discription1'
-    }, {
-        imageArray: [{ src: '../images/bags/bag_3.jpg' },
+            ],
+            discription: 'discription1'
+        }, {
+            imageArray: [{ src: '../images/bags/bag4.jpg' },
             { src: '../images/bags/bag5.jpg' },
             { src: '../images/bags/bag5.jpg' },
             { src: '../images/bags/bag5.jpg' },
             { src: '../images/bags/bag5.jpg' }
-        ],
-        discription: 'discription2'
-    },
-    {
-        imageArray: [{ src: '../images/bags/bag_3.jpg' },
+            ],
+            discription: 'discription2'
+        }, {
+            imageArray: [{ src: '../images/bags/bag2.jpg' },
             { src: '../images/bags/bag5.jpg' },
             { src: '../images/bags/bag5.jpg' },
             { src: '../images/bags/bag5.jpg' },
             { src: '../images/bags/bag5.jpg' }
-        ],
-        discription: 'discription2'
-    }    */          
-                  
-    
-    curImage.src = array[0].imageArray[0].src
-    for(i=1;i<5;i++){
-    document.getElementById('image'+i).src = array[0].imageArray[i-1].src;
+            ],
+            discription: 'discription3'
+        },
+        {
+            imageArray: [{ src: '../images/bags/bag5.jpg' },
+            { src: '../images/bags/bag5.jpg' },
+            { src: '../images/bags/bag5.jpg' },
+            { src: '../images/bags/bag5.jpg' },
+            { src: '../images/bags/bag5.jpg' }
+            ],
+            discription: 'discription4'
+        }]
+    if (array.length < value) {
+        alert('no record found')
+    } else {
+        for (i = 0; i < 5; i++) {
+            if (value == i) {
+                document.getElementById('discription').innerHTML = array[i].discription;
+
+                array[i].imageArray.forEach(function (element, elementIndex) {
+                    sideThumbnail.push(element)
+                    console.log(sideThumbnail)
+                    
+                    sideThumbnail.forEach(function (sideElement, sideElementIndex) {
+                        // document.getElementById('image' + i).src = sideElement.src;
+
+                        if (sideElementIndex == 0) {
+                            document.getElementById('image1').src = sideElement.src
+                            document.getElementById('showImage').src = sideElement.src
+                        } else if (sideElementIndex == 1) {
+                            document.getElementById('image2').src = sideElement.src
+                        } else if (sideElementIndex == 2) {
+                            document.getElementById('image3').src = sideElement.src
+                        } else if (sideElementIndex == 3) {
+                            document.getElementById('image1').src = sideElement.src
+                        } else if (sideElementIndex == 4) {
+                            document.getElementById('image5').src = sideElement.src
+                        } else {
+                            alert('no record found')
+                        }
+                    })
+
+                });
+            }
+        }
     }
+
+
+
+    curImage.src = array[0].imageArray[0].src
+    // for (i = 1; i < 5; i++) {
+    //     document.getElementById('image' + i).src = array[0].imageArray[i - 1].src;
+    //     document.getElementById('discription').innerHTML = array[0].discription;
+    // }
     /*document.getElementById('image2').src = array[imageToBeDisplayed[1]-1].imageArray[1].src
     document.getElementById('image3').src = array[imageToBeDisplayed[1]-1].imageArray[2].src
     document.getElementById('image4').src = array[imageToBeDisplayed[1]-1].imageArray[3].src
     document.getElementById('discription').innerHTML = array[0].discription
 */
-    array.forEach(function(element, elementIndex) {
+    array.forEach(function (element, elementIndex) {
         console.log(element)
     });
-    
+
 
 
 
