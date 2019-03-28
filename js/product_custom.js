@@ -51,15 +51,15 @@ function displayImageFromArray(value) {
             { src: '../images/bags/bag2.jpg' },
             { src: '../images/bags/bag3.jpg' },
             { src: '../images/bags/bag4.jpg' },
-            { src: '../images/bags/bag8.jpg' }
+            //{ src: '../images/bags/bag8.jpg' }
             ],
             discription: 'discription1'
         }, {
             imageArray: [{ src: '../images/bags/bag4.jpg' },
             { src: '../images/bags/bag5.jpg' },
             { src: '../images/bags/bag5.jpg' },
-            { src: '../images/bags/bag5.jpg' },
-            { src: '../images/bags/bag5.jpg' }
+            //{ src: '../images/bags/bag5.jpg' },
+           // { src: '../images/bags/bag5.jpg' }
             ],
             discription: 'discription2'
         }, {
@@ -90,14 +90,17 @@ function displayImageFromArray(value) {
                 array[i].imageArray.forEach(function (element, elementIndex) {
                     sideThumbnail.push(element)
                     console.log(sideThumbnail)
-                    
+                    var j=1;
                     sideThumbnail.forEach(function (sideElement, sideElementIndex) {
                         // document.getElementById('image' + i).src = sideElement.src;
+                        
+                    document.getElementById('image'+j).setAttribute("src" ,sideElement.src);
+                           j++;
 
                         if (sideElementIndex == 0) {
-                            document.getElementById('image1').src = sideElement.src
+                            /*document.getElementById('image1').src = sideElement.src*/
                             document.getElementById('showImage').src = sideElement.src
-                        } else if (sideElementIndex == 1) {
+                        } /*else if (sideElementIndex == 1) {
                             document.getElementById('image2').src = sideElement.src
                         } else if (sideElementIndex == 2) {
                             document.getElementById('image3').src = sideElement.src
@@ -107,8 +110,25 @@ function displayImageFromArray(value) {
                             document.getElementById('image5').src = sideElement.src
                         } else {
                             alert('no record found')
-                        }
+                        }*/
                     })
+                    if(array[i].imageArray.length < 5) {
+                            for(i=array[i].imageArray.length;i<5;i++){
+                                    
+                                    document.getElementById('image'+i).style.display = "none";
+                                          
+                                
+                            }
+                        
+                    }else{
+                          for(i=1;i<5;i++){
+                                    
+                                    document.getElementById('image'+i).style.display = "block";
+                                          
+                                
+                            }
+                    }
+                    
 
                 });
             }
